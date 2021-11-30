@@ -1,4 +1,7 @@
 package com.zjw.Mapper;
 
-public class UserMapper {
+import com.zjw.Domain.User;
+
+public interface UserMapper {
+    User selectUserByAll(String username);
 }
