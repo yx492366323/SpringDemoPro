@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="ISO-8859-1">
+    <file url="file://$PROJECT_DIR$/lib/junit-4.13.1.jar" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Controller/UserController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/zjw/Config/xml/db.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/zjw/Config/xml/db.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/zjw/Config/xml/mybatis-config.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/zjw/Controller/HelloController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/com/zjw/Util/MybatisUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/Hello/Hello.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/WEB-INF/spring_mybatis-config.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/jsp" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
