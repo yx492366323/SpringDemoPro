@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Mybatis.Mapper.UserOneMapper">
-    <select id="selectAllUsers" resultMap="userOneMap">
+<mapper namespace="com.zjw.Mapper.UserMapper">
+    <select id="selectAllUsers" resultMap="com.zjw.Domain.User">
         select * from UserOne
     </select>
 </mapper>
