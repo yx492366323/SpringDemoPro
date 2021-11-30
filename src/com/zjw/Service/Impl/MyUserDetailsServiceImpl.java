@@ -1,5 +1,6 @@
 package com.zjw.Service.Impl;
 
+import com.zjw.Domain.User;
 import com.zjw.Service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -11,7 +12,7 @@ import org.springframework.util.StringUtils;
 public class MyUserDetailsServiceImpl implements MyUserDetailsService, UserDetailsService {
 
     @Autowired
-    private User user
+    private User user;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
