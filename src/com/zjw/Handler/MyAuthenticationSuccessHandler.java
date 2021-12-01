@@ -18,14 +18,14 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         Set<String> Authorities = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if(Authorities.contains("DEV")){
-            httpServletResponse.sendRedirect("./Hello/Git");
+            httpServletResponse.sendRedirect("../Hello/Git");
         }
         else{
             if(Authorities.contains("ADMIN")){
                 httpServletResponse.sendRedirect("/Admin/");
             }
             else{
-                    httpServletResponse.sendRedirect("./Hello/Hello");
+                    httpServletResponse.sendRedirect("../Hello/Hello");
             }
         }
     }
