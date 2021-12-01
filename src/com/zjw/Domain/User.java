@@ -6,7 +6,7 @@ public class User {
     private String username;
     private String passwd;
     private String phone;
-    private String rules;
+    private String roles;
 
     public Integer getId() {
         return id;
@@ -48,12 +48,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getRules() {
-        return rules;
+    public String getRoles() {
+        return roles;
     }
 
-    public void setRules(String rules) {
-        this.rules = rules;
+    public void setRoles(String rules) {
+        this.roles = rules;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", passwd='" + passwd + '\'' +
                 ", phone='" + phone + '\'' +
-                ", rules='" + rules + '\'' +
+                ", roles='" + roles + '\'' +
                 '}';
     }
 }

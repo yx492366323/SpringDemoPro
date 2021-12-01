@@ -8,27 +8,37 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-//public class MyUserDetailsServiceImpl implements MyUserDetailsService, UserDetailsService {
-//
+@Service("myUserDetailsService")
+public class MyUserDetailsServiceImpl implements UserDetailsService, MyUserDetailsService {
+
 //    @Autowired
 //    private UserMapper userMapper;
-//
-//    @Override
-//    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+
+    @Override
+    public UserDetails loadUserByUsername(String UserName) throws UsernameNotFoundException {
 //        if (StringUtils.isEmpty(UserName)){
 //            throw new UsernameNotFoundException("请填写用户名！");
 //        }
-//        User user = userMapper.getUser("UserName",UserName);
+////        User user = userMapper.selectUserByAll(UserName);
 //        if (user == null) {
 //            throw new UsernameNotFoundException("用户名不存在！");
 //        }
-//        String Password = user.getPassword();
-//        String Roles = user.getUserRoles();
-//        return new org.springframework.security.core.userdetails.User(UserName,Password, AuthorityUtils
-//                .commaSeparatedStringToAuthorityList(Roles));
-//    }
-//}
+//        String Password = user.getPasswd();
+//        String Roles = user.getRoles();
+        String Password = passwordEncoder().encode("admin");
+        String Roles = "ADMIN,DEV";
+        System.out.println("MyUserDetailsServiceImpl");
+        return new org.springframework.security.core.userdetails.User(UserName,Password, AuthorityUtils
+                .commaSeparatedStringToAuthorityList(Roles));
+    }
+    private PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
 
 

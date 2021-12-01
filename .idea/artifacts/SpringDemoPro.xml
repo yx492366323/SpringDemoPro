@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="SpringDemoPro:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/SpringDemoPro_war_exploded</output-path>
+  <artifact type="exploded-war" build-on-make="true" name="SpringDemoPro">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringDemoPro</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="SpringDemoPro/web/Web" />
       <element id="directory" name="WEB-INF">

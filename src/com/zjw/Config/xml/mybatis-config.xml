@@ -13,18 +13,4 @@
 <!--        <typeAlias alias="customer" type="com.zjw.Domain.User"/>-->
         <package name="com.zjw.Domain"/>
     </typeAliases>
-    <environments default="mysql">
-        <environment id="mysql">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="${jdbc.driver}"/>
-                <property name="url" value="${jdbc.url}"/>
-                <property name="username" value="${jdbc.username}"/>
-                <property name="password" value="${jdbc.password}"/>
-            </dataSource>
-        </environment>
-    </environments>
-    <mappers>
-        <mapper resource="com/zjw/Mapper/xml/UserMapper.xml"/>
-    </mappers>
 </configuration>
