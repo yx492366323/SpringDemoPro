@@ -10,7 +10,7 @@ public class Sql {
 
     @Test
     public void selectUserByAll(){
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("com/zjw/Config/xml/spring-mybatis.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-mybatis.xml");
         //通过容器获取Bean实例
         UserMapper userMapper = (UserMapper) applicationContext.getBean("userMapper");
         MyUserDetailsServiceImpl myUserDetailsService = (MyUserDetailsServiceImpl) applicationContext.getBean("myUserDetailsService");

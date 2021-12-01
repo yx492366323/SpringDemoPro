@@ -12,7 +12,6 @@ public class LoginController {
     public ModelAndView Login(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView mav = new ModelAndView("login.jsp");
         System.out.println("Login");
-//        mav.addObject("message", "Hello My First Spring MVC");
         return mav;
     }
 //    @RequestMapping(value = "/test",method = RequestMethod.GET)

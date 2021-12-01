@@ -9,8 +9,7 @@
         <setting name="logImpl" value="STDOUT_LOGGING" />
         <setting name="cacheEnabled" value="true"/>
     </settings>
-    <typeAliases>
-<!--        <typeAlias alias="customer" type="com.zjw.Domain.User"/>-->
-        <package name="com.zjw.Domain"/>
-    </typeAliases>
+    <mappers>
+        <mapper resource="com/zjw/Mapper/xml/UserMapper.xml"/>
+    </mappers>
 </configuration>

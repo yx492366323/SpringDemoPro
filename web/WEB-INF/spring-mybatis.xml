@@ -14,6 +14,9 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--读取 db.properties -->
+    <context:component-scan base-package="com.zjw.Mapper"/>
+
+    <context:annotation-config/>
     <context:property-placeholder location="classpath:com/zjw/Config/xml/db.properties"/>
     <!--配置数据源-->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -37,14 +40,15 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     <!--实例化-->
-<!--    <bean id= "UserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-<!--        <property name="mapperInterface" value="com.zjw.Mapper.UserMapper" />-->
-<!--        <property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
-<!--    </bean>-->
-        <!-- Mapper 代理开发(基于MapperScannerConfigurer)-->
-        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-            <property name="basePackage" value="Mybatis.Mapper" />
-        </bean>
+    <!--    <bean id= "userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+    <!--        <property name="mapperInterface" value="com.zjw.Mapper.UserMapper" />-->
+    <!--        <property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
+    <!--    </bean>-->
+    <bean id= "myUserDetailsService" class="com.zjw.Service.Impl.MyUserDetailsServiceImpl"></bean>
+    <!--    &lt;!&ndash; Mapper 代理开发(基于MapperScannerConfigurer)&ndash;&gt;-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zjw.Mapper"/>
+    </bean>
     <!--开启事务注解-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!--配置MyBatis 工厂-->

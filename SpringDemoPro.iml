@@ -13,13 +13,10 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="MVC Mybatis上下文" removed="false">
-          <dependency>web application context</dependency>
-          <file>file://$MODULE_DIR$/web/WEB-INF/Spring-Mybatis.xml</file>
-        </fileset>
-        <fileset id="fileset2" name="Spring 应用程序上下文" removed="false">
+      <configuration process_explicitly_annotated="false">
+        <fileset id="fileset" name="Spring 应用程序上下文" removed="false">
           <file>file://$MODULE_DIR$/src/com/zjw/Config/xml/spring-mybatis.xml</file>
+          <file>file://$MODULE_DIR$/web/WEB-INF/spring-mybatis.xml</file>
         </fileset>
       </configuration>
     </facet>
