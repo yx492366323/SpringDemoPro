@@ -34,17 +34,17 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
 //                自定义参数名称，与login.html中的登录表单参数对应
                 .usernameParameter("username").passwordParameter("password")
-                .loginPage("/login.html").loginProcessingUrl("/login.html")
+                .loginPage("/Login/Login").loginProcessingUrl("/Login/login")
                 .successHandler(new MyAuthenticationSuccessHandler())
                 .failureForwardUrl("/loginerror.html");
 //        //记住我
         http.rememberMe();
-//        //登出
+        //登出
         http.logout().logoutUrl("/logout").logoutSuccessUrl("/login.html").logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"));
         //授权
         http.authorizeRequests()
                 //放行页面
-                .antMatchers("/index.jsp","/js/**","/css/**","/login.html","/login","/logout").permitAll()
+                .antMatchers("/index.jsp","/js/**","/css/**","/Login/**").permitAll()
                 .antMatchers("/user.html","/UserPrint/*","/upload","/test").hasAuthority("USER")
                 .antMatchers("/ManageUser/**","/Admin/**","/AdminPrint/**").hasAuthority("ADMIN")
                 .antMatchers("/swagger-ui.html","/Hello/**").hasAuthority("DEV")
