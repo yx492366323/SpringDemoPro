@@ -34,7 +34,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
 //                自定义参数名称，与login.html中的登录表单参数对应
                 .usernameParameter("username").passwordParameter("password")
-                .loginPage("/Login/Login").loginProcessingUrl("/Login/login")
+                .loginPage("/Login/login").loginProcessingUrl("/Login/login")
                 .successHandler(new MyAuthenticationSuccessHandler())
                 .failureForwardUrl("/loginerror.html");
 //        //记住我
@@ -50,7 +50,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/swagger-ui.html","/Hello/**").hasAuthority("DEV")
                 .anyRequest().hasAuthority("DEV");
         //配置好跨域相关内容前关闭一下跨域防护。
-        http.csrf().disable();
+//        http.csrf().disable();
         //X-Frame-Options
         http.headers().frameOptions().sameOrigin();
     }
