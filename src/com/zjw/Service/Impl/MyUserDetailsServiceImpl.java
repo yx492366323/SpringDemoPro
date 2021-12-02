@@ -28,7 +28,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService, MyUserDetai
         if (StringUtils.isEmpty(UserName)){
             throw new UsernameNotFoundException("请填写用户名！");
         }
-        User user = userMapper.selectUserByAll(UserName);
+        User user = userMapper.selectUserByInfo(UserName);
         if (user == null) {
             throw new UsernameNotFoundException("用户名不存在！");
         }

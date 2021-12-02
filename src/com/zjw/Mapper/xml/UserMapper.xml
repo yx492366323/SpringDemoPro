@@ -3,7 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zjw.Mapper.UserMapper">
-    <select id="selectUserByAll" resultType="com.zjw.Domain.User">
+
+    <select id="selectUserByInfo" resultType="com.zjw.Domain.User">
         select * from user where username = #{username} or phone = #{username} or idcard = #{username}
+    </select>
+
+    <select id="fineUsersByField" statementType="PREPARED" resultType="com.zjw.Domain.User">
+        select * from user
+        <if test="Value!=null">
+            where ${Field} like '%${Value}%'
+        </if>
     </select>
 </mapper>
