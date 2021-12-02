@@ -7,6 +7,8 @@ public class User {
     private String passwd;
     private String phone;
     private String roles;
+    private String securityquestion;
+    private String securityanswer;
 
     public Integer getId() {
         return id;
@@ -56,6 +58,22 @@ public class User {
         this.roles = rules;
     }
 
+    public String getSecurityquestion() {
+        return securityquestion;
+    }
+
+    public void setSecurityquestion(String securityquestion) {
+        this.securityquestion = securityquestion;
+    }
+
+    public String getSecurityanswer() {
+        return securityanswer;
+    }
+
+    public void setSecurityanswer(String securityanswer) {
+        this.securityanswer = securityanswer;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -65,6 +83,8 @@ public class User {
                 ", passwd='" + passwd + '\'' +
                 ", phone='" + phone + '\'' +
                 ", roles='" + roles + '\'' +
+                ", sucurityquestion='" + securityquestion + '\'' +
+                ", sucurityanswer='" + securityanswer + '\'' +
                 '}';
     }
 }

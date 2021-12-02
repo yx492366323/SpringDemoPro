@@ -24,7 +24,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService, MyUserDetai
 
     @Override
     public UserDetails loadUserByUsername(String UserName) throws UsernameNotFoundException {
-
+        System.out.println("Request: POST:/Login/login");
         if (StringUtils.isEmpty(UserName)){
             throw new UsernameNotFoundException("请填写用户名！");
         }
@@ -32,14 +32,10 @@ public class MyUserDetailsServiceImpl implements UserDetailsService, MyUserDetai
         if (user == null) {
             throw new UsernameNotFoundException("用户名不存在！");
         }
-        String Password = passwordEncoder().encode(user.getPasswd());
+        String Password = user.getPasswd();
         String Roles = user.getRoles();
-        System.out.println("MyUserDetailsServiceImpl");
         return new org.springframework.security.core.userdetails.User(UserName,Password, AuthorityUtils
                 .commaSeparatedStringToAuthorityList(Roles));
-    }
-    private PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }
 

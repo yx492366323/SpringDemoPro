@@ -14,4 +14,15 @@
             where ${Field} like '%${Value}%'
         </if>
     </select>
+
+    <delete id="delUserById" parameterType="integer">
+        delete from user where id = #{id}
+    </delete>
+
+    <update id="modUser" statementType="PREPARED">
+        update user set ${Field} = #{Value} where ID = #{Id}
+    </update>
+    <insert id="insUser" parameterType="com.zjw.Domain.User">
+        insert into user(idcard,username,passwd,phone,rules) values (#{idcard}, #{userName}, #{passwd}, #{phone}, #{rules})
+    </insert>
 </mapper>
