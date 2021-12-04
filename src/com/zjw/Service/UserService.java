@@ -7,6 +7,8 @@ import java.util.Map;
 public interface UserService {
     User selectUserByInfo(String username);
 
+    boolean isUserExist(String UserName);
+
     boolean insUser(User user);
 
     boolean modUser(String Field, String Value, Integer Id);

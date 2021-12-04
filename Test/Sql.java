@@ -27,6 +27,21 @@ public class Sql {
         System.out.println(user.toString());
         System.out.println(myUserDetailsService.loadUserByUsername("yx492366323"));
     }
+    @Test
+    public void isUserexist(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("file:T:/IdeaProjects/SpringDemoPro/web/WEB-INF/spring-mybatis.xml");
+        //通过容器获取Bean实例
+        UserMapper userMapper = (UserMapper) applicationContext.getBean("userMapper");
+        boolean test = userMapper.isUserExist("yx492366323");
+        System.out.println(test);
+        ApplicationContext applicationContext2 = new ClassPathXmlApplicationContext("file:T:/IdeaProjects/SpringDemoPro/web/WEB-INF/applicationContext.xml");
+        UserService userService = (UserService) applicationContext2.getBean("userService");
+        test = userService.isUserExist("yx492366323");
+        System.out.println(test);
+        List<User> users = userMapper.fineUsersByField("idcard","2019");
+        for(User userone:users)
+            System.out.println(userone);
+    }
 
     @Test
     public void verifyPasswd(){
@@ -36,8 +51,14 @@ public class Sql {
         ApplicationContext applicationContext2 = new ClassPathXmlApplicationContext("file:T:/IdeaProjects/SpringDemoPro/web/WEB-INF/applicationContext.xml");
         //通过容器获取Bean实例
         UserService userService = (UserServiceImpl) applicationContext2.getBean("userService");
-        userService.changePassword("209015227","admin","张佳伟");
-        User user = userService.selectUserByInfo("yx492366323");
+        userService.changePassword("209015227","admin","Zhangjiawei");
     }
 
+    @Test
+    public void Passwd(){
+        System.out.println(passwordEncoder().encode("admin"));
+    }
+    private PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

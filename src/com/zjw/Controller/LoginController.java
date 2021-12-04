@@ -24,6 +24,7 @@ public class LoginController {
     public ModelAndView Login() throws Exception {
         System.out.println("Request: GET:/Login/login");
         ModelAndView mav = new ModelAndView("login.jsp");
+//        userService.changePassword("2019015227","admin","Zhangjiawei");
         return mav;
     }
 
@@ -34,9 +35,16 @@ public class LoginController {
         return mav;
     }
 
+    @RequestMapping(value = "/changePassword",method = RequestMethod.GET)
+    public ModelAndView ChangePassword(){
+        System.out.println("Request: GET:/Login/changePassword");
+        ModelAndView mav = new ModelAndView("changePassword.jsp");
+        return mav;
+    }
+
     @ResponseBody
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String RegisterUser(@RequestParam Map Requestbody, HttpServletResponse response) {
+    public String register(@RequestParam Map Requestbody, HttpServletResponse response) {
         System.out.println("Request: POST:/Login/register");
         System.out.println(Requestbody);
         User user = new User();
@@ -48,15 +56,50 @@ public class LoginController {
         }
 
         if(!userService.insUser(user)){
-            System.out.println("ע��ʧ��");
-            return "ע��ʧ��";
+            System.out.println("注册失败！");
+            return "注册失败！";
         }
         try {
             response.sendRedirect("/login.html");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("ע��ɹ�");
-        return "ע��ɹ�";
+        System.out.println("注册成功！");
+        return "注册成功！";
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/isUserExist", method = RequestMethod.GET)
+    public boolean isuserexist(String UserName) {
+        System.out.println("Request: /User/isUserExist");
+        System.out.println(UserName);
+        return userService.isUserExist(UserName);
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/getQuestion", method = RequestMethod.GET)
+    public String getquestion(String UserName) {
+        System.out.println("Request: GET:/User/getQuestion");
+        System.out.println(UserName);
+        return userService.getQuestion(UserName);
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/verifyAnswer", method = RequestMethod.GET)
+    public boolean verifyanswer(String UserName, String SecurityAnswer) {
+        System.out.println("Request: GET:/User/verifyAnswer");
+        System.out.println(UserName);
+        System.out.println(SecurityAnswer);
+        return userService.verifyAnswer(UserName,SecurityAnswer);
+    }
+
+    @ResponseBody
+    @RequestMapping(path = "/changePassword", method = RequestMethod.POST)
+    public boolean changepassword(String UserName, String Password , String SecurityAnswer) {
+        System.out.println("Request: POST:/User/changePassword");
+        System.out.println(UserName);
+        System.out.println(Password);
+        System.out.println(SecurityAnswer);
+        return userService.changePassword(UserName,Password,SecurityAnswer);
     }
 }

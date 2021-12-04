@@ -25,6 +25,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectUserByInfo(username);
     }
 
+    public boolean isUserExist(String UserName) {
+        return userMapper.isUserExist(UserName);
+    }
+
     public boolean insUser(User user) {
         return 1==userMapper.insUser(user);
     }
@@ -32,6 +36,7 @@ public class UserServiceImpl implements UserService {
     public boolean modUser(String Field, String Value, Integer Id) {
         return 1==userMapper.modUser(Field, Value, Id);
     }
+
 
     public String getQuestion(String UserName){
         return selectUserByInfo(UserName).getSecurityquestion();

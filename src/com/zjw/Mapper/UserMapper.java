@@ -9,6 +9,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     User selectUserByInfo(String username);
+    Boolean isUserExist(String userName);
     List<User> fineUsersByField(@Param("Field") String Field, @Param("Value") String Value);
     int delUserById(Integer Id);
     int modUser(@Param("Field") String Field, @Param("Value") String Value, @Param("Id") Integer Id);

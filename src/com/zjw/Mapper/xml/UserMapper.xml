@@ -8,6 +8,10 @@
         select * from user where username = #{username} or phone = #{username} or idcard = #{username}
     </select>
 
+    <select id="isUserExist" parameterType="string" resultType="boolean">
+        select IFNULL((select 1 from User where username = #{username} or phone = #{username} or idcard = #{username} ),0)
+    </select>
+
     <select id="fineUsersByField" statementType="PREPARED" resultType="com.zjw.Domain.User">
         select * from user
         <if test="Value!=null">
