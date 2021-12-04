@@ -15,7 +15,6 @@
     <facet type="Spring" name="Spring">
       <configuration process_explicitly_annotated="false">
         <fileset id="fileset" name="Spring 应用程序上下文" removed="false">
-          <file>file://$MODULE_DIR$/src/com/zjw/Config/xml/spring-mybatis.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/spring-mybatis.xml</file>
         </fileset>
       </configuration>
@@ -45,5 +44,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Mybatis-3.5.7" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.13.0" level="project" />
   </component>
 </module>
