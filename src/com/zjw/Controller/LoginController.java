@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
@@ -17,6 +18,17 @@ import java.util.Map;
 @Controller
 @RequestMapping("/Login")
 public class LoginController {
+
+    private boolean BoolMsg;
+
+    public boolean isBoolMsg(){
+        return BoolMsg;
+    }
+
+    public void setBoolMsg(boolean boolMsg) {
+        BoolMsg = boolMsg;
+    }
+
     @Autowired
     private UserService userService;
 
@@ -28,11 +40,15 @@ public class LoginController {
         return mav;
     }
 
+    @ResponseBody
     @RequestMapping(value = "/register",method = RequestMethod.GET)
-    public ModelAndView Register(){
-        System.out.println("Request: GET:/Login/register");
-        ModelAndView mav = new ModelAndView("login.jsp");
-        return mav;
+//    public ModelAndView Register(){
+//        System.out.println("Request: GET:/Login/register");
+//        ModelAndView mav = new ModelAndView("login.jsp");
+//        return mav;
+//    }
+    public Integer Register(){
+        return 1;
     }
 
     @RequestMapping(value = "/changePassword",method = RequestMethod.GET)
@@ -70,10 +86,10 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(path = "/isUserExist", method = RequestMethod.GET)
-    public boolean isuserexist(String UserName) {
+    public String isuserexist(String UserName) {
         System.out.println("Request: /User/isUserExist");
         System.out.println(UserName);
-        return userService.isUserExist(UserName);
+        return userService.isUserExist(UserName)?"true":"";
     }
 
     @ResponseBody
@@ -86,20 +102,20 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(path = "/verifyAnswer", method = RequestMethod.GET)
-    public boolean verifyanswer(String UserName, String SecurityAnswer) {
+    public String verifyanswer(String UserName, String SecurityAnswer) {
         System.out.println("Request: GET:/User/verifyAnswer");
         System.out.println(UserName);
         System.out.println(SecurityAnswer);
-        return userService.verifyAnswer(UserName,SecurityAnswer);
+        return userService.verifyAnswer(UserName,SecurityAnswer)?"true":"";
     }
 
     @ResponseBody
     @RequestMapping(path = "/changePassword", method = RequestMethod.POST)
-    public boolean changepassword(String UserName, String Password , String SecurityAnswer) {
+    public String changepassword(String UserName, String Password , String SecurityAnswer) {
         System.out.println("Request: POST:/User/changePassword");
         System.out.println(UserName);
         System.out.println(Password);
         System.out.println(SecurityAnswer);
-        return userService.changePassword(UserName,Password,SecurityAnswer);
+        return userService.changePassword(UserName,Password,SecurityAnswer)?"true":"";
     }
 }
