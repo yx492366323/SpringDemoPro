@@ -42,13 +42,10 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(value = "/register",method = RequestMethod.GET)
-//    public ModelAndView Register(){
-//        System.out.println("Request: GET:/Login/register");
-//        ModelAndView mav = new ModelAndView("login.jsp");
-//        return mav;
-//    }
-    public Integer Register(){
-        return 1;
+    public ModelAndView Register(){
+        System.out.println("Request: GET:/Login/register");
+        ModelAndView mav = new ModelAndView("login.jsp");
+        return mav;
     }
 
     @RequestMapping(value = "/changePassword",method = RequestMethod.GET)
