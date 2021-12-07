@@ -121,7 +121,6 @@ public class LoginController {
         System.out.println(UserName);
         System.out.println(Password);
         System.out.println(SecurityAnswer);
-        return userService.changePassword(UserName,Password,SecurityAnswer)?"true":""
-                ;
+        return userService.changePassword(UserName,Password,SecurityAnswer)?"true":"";
     }
 }

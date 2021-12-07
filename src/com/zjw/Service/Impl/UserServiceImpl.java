@@ -55,12 +55,12 @@ public class UserServiceImpl implements UserService {
 
     public User toUser(Map Requestbody){
         User user = new User();
-        user.setIdcard((String) Requestbody.get("Idcard"));
-        user.setUsername((String) Requestbody.get("Username"));
-        user.setPasswd(passwordEncoder().encode((String) Requestbody.get("Passwd")));
-        user.setPhone((String) Requestbody.get("Phone"));
-        user.setSecurityquestion((String) Requestbody.get("Securityquestion"));
-        user.setSecurityanswer((String) Requestbody.get("Securityanswer"));
+        user.setIdcard((String) Requestbody.get("IDCardNumber"));
+        user.setUsername((String) Requestbody.get("UserName"));
+        user.setPasswd(passwordEncoder().encode((String) Requestbody.get("Password")));
+        user.setPhone((String) Requestbody.get("PhoneNumber"));
+        user.setSecurityquestion((String) Requestbody.get("SecurityQuestion"));
+        user.setSecurityanswer((String) Requestbody.get("SecurityAnswer"));
         user.setRoles("USER");
         return user;
     }

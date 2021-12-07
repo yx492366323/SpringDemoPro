@@ -16,12 +16,12 @@
     <link rel="apple-touch-icon" href="./logo192.png"/>
     <link rel="manifest" href="./manifest.json"/>
     <title>注册</title>
-    <link href="./static/css/2.09765660.chunk.css" rel="stylesheet">
-    <link href="./static/css/main.c2c094ac.chunk.css" rel="stylesheet">
+    <link href="./static/css/2.12ab724e.chunk.css" rel="stylesheet">
+    <link href="./static/css/main.ef20ed7f.chunk.css" rel="stylesheet">
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="Login_div">
+<div id="Register_div">
     <div id="Logo"><h1>注册</h1></div>
     <input id="csrf" type="hidden" name="_csrf" value="${_csrf.token}"/>
     <div id="Register"></div>
@@ -115,7 +115,7 @@
     var f = c;
     t()
 }([])</script>
-<script src="./static/js/2.9345e97d.chunk.js"></script>
-<script src="./static/js/main.323196b3.chunk.js"></script>
+<script src="./static/js/2.95ff5188.chunk.js"></script>
+<script src="./static/js/main.578bbeb2.chunk.js"></script>
 </body>
 </html>

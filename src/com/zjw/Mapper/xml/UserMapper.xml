@@ -27,6 +27,6 @@
         update user set ${Field} = #{Value} where ID = #{Id}
     </update>
     <insert id="insUser" parameterType="com.zjw.Domain.User">
-        insert into user(idcard,username,passwd,phone,rules) values (#{idcard}, #{userName}, #{passwd}, #{phone}, #{rules})
+        insert into user(idcard,username,passwd,phone,roles,securityquestion,securityanswer) values (#{idcard}, #{username}, #{passwd}, #{phone}, #{roles}, #{securityquestion}, #{securityanswer})
     </insert>
 </mapper>
