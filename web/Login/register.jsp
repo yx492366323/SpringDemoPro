@@ -15,17 +15,16 @@
     <meta name="description" content="Web site created using create-react-app"/>
     <link rel="apple-touch-icon" href="./logo192.png"/>
     <link rel="manifest" href="./manifest.json"/>
-    <title>登录</title>
+    <title>注册</title>
     <link href="./static/css/2.09765660.chunk.css" rel="stylesheet">
     <link href="./static/css/main.c2c094ac.chunk.css" rel="stylesheet">
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="Login_div">
-    <div id="Logo"><h1>登录</h1></div>
+    <div id="Logo"><h1>注册</h1></div>
     <input id="csrf" type="hidden" name="_csrf" value="${_csrf.token}"/>
-    <input id="remember" type="hidden" name="remember-me" value="true"/>
-    <div id="Login"></div>
+    <div id="Register"></div>
 </div>
 <script>!function (e) {
     function r(r) {
@@ -63,7 +62,7 @@
             r.push(t[2] = n);
             var u, a = document.createElement("script");
             a.charset = "utf-8", a.timeout = 120, i.nc && a.setAttribute("nonce", i.nc), a.src = function (e) {
-                return i.p + "static/js/" + ({}[e] || e) + "." + {3: "42d1248c"}[e] + ".chunk.js"
+                return i.p + "static/js/" + ({}[e] || e) + "." + {3: "fd3ae525"}[e] + ".chunk.js"
             }(e);
             var c = new Error;
             u = function (r) {
@@ -110,13 +109,13 @@
     }, i.p = "./", i.oe = function (e) {
         throw console.error(e), e
     };
-    var a = this.webpackJsonplogin = this.webpackJsonplogin || [], c = a.push.bind(a);
+    var a = this.webpackJsonpregister = this.webpackJsonpregister || [], c = a.push.bind(a);
     a.push = r, a = a.slice();
     for (var l = 0; l < a.length; l++) r(a[l]);
     var f = c;
     t()
 }([])</script>
-<script src="./static/js/2.15eb7ab6.chunk.js"></script>
-<script src="./static/js/main.1f3ea55e.chunk.js"></script>
+<script src="./static/js/2.9345e97d.chunk.js"></script>
+<script src="./static/js/main.323196b3.chunk.js"></script>
 </body>
 </html>

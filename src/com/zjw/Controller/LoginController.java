@@ -42,19 +42,24 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(value = "/register",method = RequestMethod.GET)
-//    public ModelAndView Register(){
-//        System.out.println("Request: GET:/Login/register");
-//        ModelAndView mav = new ModelAndView("login.jsp");
-//        return mav;
-//    }
-    public Integer Register(){
-        return 1;
+    public ModelAndView Register(){
+        System.out.println("Request: GET:/Login/register");
+        ModelAndView mav = new ModelAndView("register.jsp");
+        return mav;
     }
 
     @RequestMapping(value = "/changePassword",method = RequestMethod.GET)
     public ModelAndView ChangePassword(){
         System.out.println("Request: GET:/Login/changePassword");
         ModelAndView mav = new ModelAndView("changePassword.jsp");
+        return mav;
+    }
+
+    @RequestMapping(value = "/agreement",method = RequestMethod.GET)
+    public ModelAndView Agreement(){
+        System.out.println("Request: GET:/Login/agreement");
+        ModelAndView mav = new ModelAndView("agreement.jsp");
+        mav.addObject("message", "This is a agreement! You must agree it before use this website!");
         return mav;
     }
 
@@ -116,6 +121,7 @@ public class LoginController {
         System.out.println(UserName);
         System.out.println(Password);
         System.out.println(SecurityAnswer);
-        return userService.changePassword(UserName,Password,SecurityAnswer)?"true":"";
+        return userService.changePassword(UserName,Password,SecurityAnswer)?"true":""
+                ;
     }
 }
