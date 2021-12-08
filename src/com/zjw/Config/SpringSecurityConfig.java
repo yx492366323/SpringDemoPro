@@ -41,7 +41,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 //        //记住我
         http.rememberMe();
         //登出
-        http.logout().logoutUrl("/Login/logout").logoutSuccessUrl("/login.html").logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"));
+        http.logout().logoutUrl("/Login/logout").logoutSuccessUrl("/Login/login").logoutRequestMatcher(new AntPathRequestMatcher("/Login/logout", "GET"));
         //授权
         http.authorizeRequests()
                 //放行页面
