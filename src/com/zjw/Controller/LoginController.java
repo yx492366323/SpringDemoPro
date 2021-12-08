@@ -40,7 +40,6 @@ public class LoginController {
         return mav;
     }
 
-    @ResponseBody
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public ModelAndView Register(){
         System.out.println("Request: GET:/Login/register");
@@ -75,13 +74,14 @@ public class LoginController {
             String tmp = e +"";
             return tmp;
         }
-
-        if(!userService.insUser(user)){
-            System.out.println("注册失败！");
-            return "注册失败！";
+        try {
+            userService.insUser(user);
+        } catch (Exception e) {
+            String tmp = "<h1>注册失败！手机号与学号仅可注册一次！请检查手机号和学号！</h1>\n" + e ;
+            return tmp;
         }
         try {
-            response.sendRedirect("/login.html");
+            response.sendRedirect("login.html");
         } catch (IOException e) {
             e.printStackTrace();
         }

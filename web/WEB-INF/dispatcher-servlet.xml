@@ -8,6 +8,14 @@
     <context:component-scan base-package="com.zjw.Controller"/>
 <!--    <bean id="helloController" class="com.zjw.Controller.HelloController"></bean>-->
 <!--    <bean id="loginController" class="com.zjw.Controller.LoginController"></bean>-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven >
+        <!-- 消息转换器 -->
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
     <mvc:default-servlet-handler/>
 </beans>
