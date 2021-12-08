@@ -44,7 +44,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         //授权
         http.authorizeRequests()
                 //放行页面
-                .antMatchers("/index.jsp","/js/**","/css/**","/Login/**").permitAll()
+                .antMatchers("/index.jsp","/Login/**").permitAll()
                 .antMatchers("/user.html","/UserPrint/*","/upload","/test").hasAuthority("USER")
                 .antMatchers("/ManageUser/**","/Admin/**","/AdminPrint/**").hasAuthority("ADMIN")
                 .antMatchers("/swagger-ui.html","/Hello/**").hasAuthority("DEV")
