@@ -39,6 +39,13 @@ public class LoginController {
 //        userService.changePassword("2019015227","admin","Zhangjiawei");
         return mav;
     }
+    @RequestMapping(value = "/loginerror",method = RequestMethod.GET)
+    public ModelAndView Loginerror() throws Exception {
+        System.out.println("Request: GET:/Login/login");
+        ModelAndView mav = new ModelAndView("login.jsp");
+        mav.addObject("error", "Please input right username and password!");
+        return mav;
+    }
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public ModelAndView Register(){

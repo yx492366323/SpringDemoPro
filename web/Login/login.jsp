@@ -118,5 +118,10 @@
 }([])</script>
 <script src="./static/js/2.15eb7ab6.chunk.js"></script>
 <script src="./static/js/main.10d107e9.chunk.js"></script>
+<script>
+    var errormsg = ${error}
+    if (errormsg)
+        alert(errormsg);
+</script>
 </body>
 </html>

@@ -36,11 +36,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username").passwordParameter("password")
                 .loginPage("/Login/login").loginProcessingUrl("/Login/login")
                 .successHandler(new MyAuthenticationSuccessHandler())
-                .failureForwardUrl("/loginerror.html");
+                .failureForwardUrl("/Login/loginerror");
 //        //记住我
         http.rememberMe();
         //登出
-        http.logout().logoutUrl("/logout").logoutSuccessUrl("/login.html").logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"));
+        http.logout().logoutUrl("/Login/logout").logoutSuccessUrl("/Login/login").logoutRequestMatcher(new AntPathRequestMatcher("/Login/login", "GET"));
         //授权
         http.authorizeRequests()
                 //放行页面
