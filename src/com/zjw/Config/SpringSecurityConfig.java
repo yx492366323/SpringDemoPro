@@ -1,5 +1,6 @@
 package com.zjw.Config;
 
+import com.zjw.Handler.MyAuthenticationFailureHandler;
 import com.zjw.Handler.MyAuthenticationSuccessHandler;
 import com.zjw.Service.Impl.MyUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username").passwordParameter("password")
                 .loginPage("/Login/login").loginProcessingUrl("/Login/login")
                 .successHandler(new MyAuthenticationSuccessHandler())
-                .failureForwardUrl("/Login/loginerror");
+                .failureHandler(new MyAuthenticationFailureHandler());
 //        //记住我
         http.rememberMe();
         //登出
-        http.logout().logoutUrl("/Login/logout").logoutSuccessUrl("/Login/login").logoutRequestMatcher(new AntPathRequestMatcher("/Login/login", "GET"));
+        http.logout().logoutUrl("/Login/logout").logoutSuccessUrl("/login.html").logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"));
         //授权
         http.authorizeRequests()
                 //放行页面
