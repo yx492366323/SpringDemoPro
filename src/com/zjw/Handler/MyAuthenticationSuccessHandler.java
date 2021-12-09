@@ -22,7 +22,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         }
         else{
             if(Authorities.contains("ADMIN")){
-                httpServletResponse.sendRedirect("/Admin/");
+                httpServletResponse.sendRedirect("../Admin/");
             }
             else{
                     httpServletResponse.sendRedirect("../Hello/Hello");
