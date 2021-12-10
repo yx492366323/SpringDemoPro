@@ -20,8 +20,8 @@
                     <span>${username}</span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="/user.html">As user</a></dd>
-                    <dd><a href="../Login/logout">Sign out</a></dd>
+                    <dd><a href="/user.html">As User Login</a></dd>
+                    <dd><a href="../Login/logout">Logout</a></dd>
                 </dl>
             </li>
         </ul>
@@ -34,7 +34,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">统计信息</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:Change_iframe(1);">数据报表</a></dd>
+                        <dd class="layui-this"><a href="javascript:Change_iframe(1);">数据报表</a></dd>
                         <dd><a href="javascript:Change_iframe(2);">系统信息</a></dd>
                     </dl>
                 </li>
@@ -46,9 +46,10 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">订单管理</a>
+                    <a href="javascript:;">内容管理</a>
                     <dl class="layui-nav-child">
-                        <dd class="layui-this"><a href="javascript:Change_iframe(5);">打印订单管理</a></dd>
+                        <dd><a href="javascript:Change_iframe(5);">视频管理</a></dd>
+                        <dd><a href="javascript:Change_iframe(6);">页面管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
