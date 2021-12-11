@@ -45,9 +45,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         //授权
         http.authorizeRequests()
                 //放行页面
-                .antMatchers("/index.jsp","/Login/**","/Public/**").permitAll()
-                .antMatchers("/User/**").hasAuthority("USER")
-                .antMatchers("/Admin/**").hasAuthority("ADMIN")
+                .antMatchers("/index.jsp","/Login/**").permitAll()
+                .antMatchers("/User/**","/Public/**").hasAuthority("USER")
+                .antMatchers("/Admin/**","/Public/**").hasAuthority("ADMIN")
                 .antMatchers("/swagger-ui.html","/Hello/**").hasAuthority("DEV")
                 .anyRequest().hasAuthority("DEV");
         //配置好跨域相关内容前关闭一下跨域防护。

@@ -49,7 +49,7 @@
                     <a href="javascript:;">内容管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:Change_iframe(5);">视频管理</a></dd>
-                        <dd><a href="javascript:Change_iframe(6);">页面管理</a></dd>
+                        <dd><a href="javascript:Change_iframe(6);">视频上传</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
