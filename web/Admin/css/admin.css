@@ -9,3 +9,9 @@
 #footer{
     text-align: center;
 }
+#user-menu-img{
+    padding-right: 0px;
+}
+#user-menu-button{
+    background-color: #393d49;
+}

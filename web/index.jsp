@@ -12,5 +12,6 @@
   </head>
   <body>
   <h1>Hello,frinds</h1>
+  <a href="Login/login">登录</a>
   </body>
 </html>

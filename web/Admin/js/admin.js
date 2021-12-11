@@ -23,4 +23,4 @@ function Change_iframe(num){
     }
     document.getElementById("iframe_"+num).style.display="";
 }
-Change_iframe(5)
+Change_iframe(1)
