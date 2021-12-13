@@ -44,6 +44,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Mybatis-3.5.7" level="project" />
+    <orderEntry type="library" name="tomcat-embed-core-9.0.50" level="project" />
     <orderEntry type="library" name="jackson-annotations-2.13.0" level="project" />
   </component>
 </module>

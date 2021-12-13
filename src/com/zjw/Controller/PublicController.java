@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,14 +29,14 @@ public class PublicController {
         if(file.getSize()>(300*1024*1000)){
             return "请不要上传过大的文件（>300M）！";
         }
-//        try {
-//            file.transferTo(uploadFile);
-//            System.out.println(uploadFile);
-//        } catch (FileUploadException e){
-//            return "请不要上传过大的文件（>500M）！\n"+e;
-//        } catch (IOException e) {
-//            return "服务器异常，请联系管理员！\n"+e;
-//        }
+        try {
+            file.transferTo(uploadFile);
+            System.out.println(uploadFile);
+        } catch (FileUploadException e){
+            return "请不要上传过大的文件（>500M）！\n"+e;
+        } catch (IOException e) {
+            return "服务器异常，请联系管理员！\n"+e;
+        }
         int page = 0;
         return "上传成功，请移步订单中心页面补充或修改相关信息.";
     }

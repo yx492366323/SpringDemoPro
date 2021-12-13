@@ -18,4 +18,10 @@ public class AdminController {
         mav.addObject("username", authentication.getName());
         return mav;
     }
+    @RequestMapping(value = "/upload",method = RequestMethod.GET)
+    public ModelAndView Upload(Authentication authentication) throws Exception {
+        System.out.println("Request: GET:/Admin/");
+        ModelAndView mav = new ModelAndView("upload.jsp");
+        return mav;
+    }
 }
