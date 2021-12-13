@@ -12,14 +12,37 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/layui.css">
+    <link rel="stylesheet" href="css/layui.css">
     <title>upload</title>
 </head>
 <body>
-<form action="../Public/upload" method="post" enctype="multipart/form-data">
+
+<div class="layui-upload">
     <input id="csrf" type="hidden" name="_csrf" value="${_csrf.token}"/>
-    <input type="file" name="file" id="file" class="layui-btn"style="margin: 20px;">
-    <input type="submit" value="提交" class="layui-btn" style="margin: 20px;">
-</form>
+    <button type="button" class="layui-btn layui-btn-normal" id="testList">选择多文件</button>
+    <div class="layui-upload-list" style="max-width: 1000px;">
+        <table class="layui-table">
+            <colgroup>
+                <col>
+                <col width="150">
+                <col width="260">
+                <col width="150">
+            </colgroup>
+            <thead>
+            <tr><th>文件名</th>
+                <th>大小</th>
+                <th>上传进度</th>
+                <th>操作</th>
+            </tr></thead>
+            <tbody id="demoList"></tbody>
+        </table>
+    </div>
+    <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+</div>
+
+<script src="js/layui.js"></script>
+<script src="js/upload.js"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
+
 </body>
 </html>

@@ -19,26 +19,30 @@ public class PublicController {
 
     @ResponseBody
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public String Upload(@RequestParam("file") MultipartFile file){
+    public String Upload(@RequestParam("file") MultipartFile file,@RequestParam(name="type",required = false) String type){
         String UserName = SecurityContextHolder.getContext().getAuthentication().getName();
+        String Roles = String.valueOf(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+        String recFilePath="T:/IdeaProjects/SpringDemoPro/web/Public/Upload/UserFile/";
+        if(Roles.indexOf("ADMIN")!=-1){
+            recFilePath="T:/IdeaProjects/SpringDemoPro/web/Public/Upload/"+type;
+        }
         String RemoteAddress = ((WebAuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails()).getRemoteAddress();
         String thefilename = UserName+"_"+RemoteAddress+"_"+System.currentTimeMillis()+"_"+file.getOriginalFilename();
         System.out.println("Request: POST:/Public/upload");
-        String recFilePath="F:/WebFile/file/";
         File uploadFile = new File(recFilePath+thefilename);
         if(file.getSize()>(300*1024*1000)){
-            return "请不要上传过大的文件（>300M）！";
+            return "{\"code\": -1,\"msg\": \"请不要上传过大的文件（>300M）！\"}";
         }
         try {
             file.transferTo(uploadFile);
             System.out.println(uploadFile);
         } catch (FileUploadException e){
-            return "请不要上传过大的文件（>500M）！\n"+e;
+            return "{\"code\": -1,\"msg\": \"请不要上传过大的文件（>500M）！\"}"+e;
         } catch (IOException e) {
-            return "服务器异常，请联系管理员！\n"+e;
+            return "{\"code\": -1,\"msg\": \"服务器异常，请联系管理员！\"}"+e;
         }
         int page = 0;
-        return "上传成功，请移步订单中心页面补充或修改相关信息.";
+        return "{\"code\": 0,\"msg\": \"上传成功!\"}";
     }
 
 }

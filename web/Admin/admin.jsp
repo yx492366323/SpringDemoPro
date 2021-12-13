@@ -13,6 +13,10 @@
     <div class="layui-header" style="background-color: #4D5260;">
         <div class="layui-logo layui-hide-xs layui-bg-black">Online Print System</div>
         <!-- 头部区域（可配合layui 已有的水平导航） -->
+        <div id="Refresh" onclick="Reload_iframe()">
+            <i class="layui-icon layui-icon-refresh" style="font-size: 30px;"></i>
+            <h4>刷 新</h4>
+        </div>
         <ul class="layui-nav layui-layout-right" id="user-menu-img">
             <li class="layui-nav-item layui-hide layui-show-md-inline-block">
                 <a id="user-menu-button" href="javascript:;">
@@ -66,7 +70,7 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px; height: 100%;">
             <div class="iframe_div_all" id="iframe_1">
-                <iframe class="iframe_one" src="/AdminPrint/statistics.html" frameborder="0"></iframe>
+                <iframe class="iframe_one" src="admin.jsp" frameborder="0"></iframe>
             </div>
             <div class="iframe_div_all" id="iframe_2">
                 <iframe class="iframe_one" src="/ManageUser/server.html" frameborder="0"></iframe>

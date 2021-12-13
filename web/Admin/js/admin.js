@@ -24,3 +24,14 @@ function Change_iframe(num){
     document.getElementById("iframe_"+num).style.display="";
 }
 Change_iframe(1)
+
+function Reload_iframe(){
+    var ifream_all = document.getElementsByClassName("iframe_div_all");
+    var i=0;
+    for (i=0;i<ifream_all.length;i++){
+        if(ifream_all[i].style.display==""){
+            herf=document.getElementsByClassName('iframe_one')[i].contentWindow.location.href.split("/").pop();
+            document.getElementsByClassName('iframe_one')[i].contentWindow.location.href=herf;
+        }
+    }
+}
