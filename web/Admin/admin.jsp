@@ -81,7 +81,7 @@
                 <iframe class="iframe_one" src="/AdminPrint/orderManager.html" frameborder="0"></iframe>
             </div>
             <div class="iframe_div_all" id="iframe_6">
-                <iframe class="iframe_one" src="upload.jsp" frameborder="0"></iframe>
+                <iframe class="iframe_one" src="upload" frameborder="0"></iframe>
             </div>
             <div class="iframe_div_all" id="iframe_7">
                     <iframe class="iframe_one" src="/AdminPrint/modelInsert.html" frameborder="0"></iframe>

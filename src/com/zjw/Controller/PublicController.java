@@ -18,14 +18,14 @@ import java.time.LocalDate;
 public class PublicController {
 
     @ResponseBody
-    @RequestMapping(path = "/upload", method = RequestMethod.POST)
-    public String upload(@RequestParam("file") MultipartFile file){
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public String Upload(@RequestParam("file") MultipartFile file){
         String UserName = SecurityContextHolder.getContext().getAuthentication().getName();
         String RemoteAddress = ((WebAuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails()).getRemoteAddress();
-        String filename = UserName+"_"+RemoteAddress+"_"+System.currentTimeMillis()+"_"+file.getOriginalFilename();
-        System.out.println("Request: GET:/Public/upload");
+        String thefilename = UserName+"_"+RemoteAddress+"_"+System.currentTimeMillis()+"_"+file.getOriginalFilename();
+        System.out.println("Request: POST:/Public/upload");
         String recFilePath="F:/WebFile/file/";
-        File uploadFile = new File(recFilePath+filename);
+        File uploadFile = new File(recFilePath+thefilename);
         if(file.getSize()>(300*1024*1000)){
             return "请不要上传过大的文件（>300M）！";
         }
