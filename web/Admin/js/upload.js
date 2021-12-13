@@ -11,7 +11,8 @@ layui.use(['upload', 'element', 'layer'], function(){
         ,data: {
             _csrf: function(){
                 return $('#csrf').val();
-            }
+            },
+            type:"Video"
         }
         ,accept: 'file'
         ,size: 307200 //最大允许上传的文件大小

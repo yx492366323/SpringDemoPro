@@ -1,5 +1,10 @@
 package com.zjw.Controller;
 
+import org.apache.commons.io.FileUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
@@ -22,9 +27,9 @@ public class PublicController {
     public String Upload(@RequestParam("file") MultipartFile file,@RequestParam(name="type",required = false) String type){
         String UserName = SecurityContextHolder.getContext().getAuthentication().getName();
         String Roles = String.valueOf(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
-        String recFilePath="T:/IdeaProjects/SpringDemoPro/web/Public/Upload/UserFile/";
+        String recFilePath="F:/WebFile/file/Upload/";
         if(Roles.indexOf("ADMIN")!=-1){
-            recFilePath="T:/IdeaProjects/SpringDemoPro/web/Public/Upload/"+type;
+            recFilePath="F:/WebFile/file/Upload/"+type+"/";
         }
         String RemoteAddress = ((WebAuthenticationDetails) SecurityContextHolder.getContext().getAuthentication().getDetails()).getRemoteAddress();
         String thefilename = UserName+"_"+RemoteAddress+"_"+System.currentTimeMillis()+"_"+file.getOriginalFilename();
@@ -43,6 +48,16 @@ public class PublicController {
         }
         int page = 0;
         return "{\"code\": 0,\"msg\": \"上传成功!\"}";
+    }
+
+    @RequestMapping(value = "/download", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> Download(@RequestParam("filename") String filename) throws IOException {
+//        String dfileName = new String(fileName.getBytes("gb2312"), "iso8859-1");
+        File file = new File("F:/WebFile/file/Upload/Video/admin_127.0.0.1_1639423102142_share_52a7d6cd042b663861ace4abc9378ab3.mp4");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentDispositionFormData("attachment", "1.mp4");
+        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
     }
 
 }
