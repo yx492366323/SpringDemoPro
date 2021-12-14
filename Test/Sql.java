@@ -1,5 +1,7 @@
 import com.zjw.Domain.User;
+import com.zjw.Domain.Video;
 import com.zjw.Mapper.UserMapper;
+import com.zjw.Mapper.VideoMapper;
 import com.zjw.Service.Impl.MyUserDetailsServiceImpl;
 import com.zjw.Service.Impl.UserServiceImpl;
 import com.zjw.Service.UserService;
@@ -10,6 +12,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Sql {
@@ -52,6 +56,22 @@ public class Sql {
         //通过容器获取Bean实例
         UserService userService = (UserServiceImpl) applicationContext2.getBean("userService");
         userService.changePassword("209015227","admin","Zhangjiawei");
+    }
+
+    @Test
+    public void video(){
+        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("file:T:/IdeaProjects/SpringDemoPro/web/WEB-INF/spring-mybatis.xml");
+        //通过容器获取Bean实例
+        VideoMapper videoMapper = (VideoMapper) applicationContext1.getBean("videoMapper");
+        Video video = new Video();
+        video.setName("1");
+        video.setFilename("1");
+        video.setTime(Time.valueOf("00:00:10"));
+        video.setPath("1");
+        video.setUsername("1");
+        Timestamp nowtime = new Timestamp(System.currentTimeMillis());
+        video.setUploadtime(nowtime);
+        videoMapper.insVideo(video);
     }
 
     @Test

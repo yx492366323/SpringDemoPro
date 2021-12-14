@@ -17,7 +17,7 @@ layui.use(['upload', 'element', 'layer'], function(){
         ,accept: 'file'
         ,size: 307200 //最大允许上传的文件大小
         ,multiple: true
-        ,number: 3
+        ,number: 100
         ,auto: false
         ,bindAction: '#testListAction'
         ,choose: function(obj){

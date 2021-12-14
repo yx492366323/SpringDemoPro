@@ -11,5 +11,6 @@
     </settings>
     <mappers>
         <mapper resource="com/zjw/Mapper/xml/UserMapper.xml"/>
+        <mapper resource="com/zjw/Mapper/xml/VideoMapper.xml"/>
     </mappers>
 </configuration>

@@ -1,6 +1,11 @@
 package com.zjw.Controller;
 
+import com.zjw.Domain.Video;
+import com.zjw.Mapper.VideoMapper;
+import it.sauronsoftware.jave.EncoderException;
 import org.apache.commons.io.FileUtils;
+import org.apache.velocity.exception.ResourceNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -8,23 +13,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import it.sauronsoftware.jave.Encoder;
+
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @RequestMapping("/Public")
 public class PublicController {
 
+    @Autowired
+    private VideoMapper videoMapper;
+
     @ResponseBody
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public String Upload(@RequestParam("file") MultipartFile file,@RequestParam(name="type",required = false) String type){
+    public String Upload(@RequestParam("file") MultipartFile file,@RequestParam(name="type",required = false) String type) throws EncoderException {
         String UserName = SecurityContextHolder.getContext().getAuthentication().getName();
         String Roles = String.valueOf(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         String recFilePath="F:/WebFile/file/Upload/";
@@ -46,17 +57,36 @@ public class PublicController {
         } catch (IOException e) {
             return "{\"code\": -1,\"msg\": \"服务器异常，请联系管理员！\"}"+e;
         }
-        int page = 0;
+        Video video = new Video();
+        video.setName(file.getOriginalFilename());
+        video.setFilename(thefilename);
+        Encoder encoder = new Encoder();
+        it.sauronsoftware.jave.MultimediaInfo m = encoder.getInfo(uploadFile);
+        long ls = m.getDuration();
+        String time = ls/3600000+":"+ls/60000+":"+ls/1000;
+        video.setTime(Time.valueOf(time));
+        video.setPath(recFilePath);
+        video.setUsername(UserName);
+        Timestamp nowtime = new Timestamp(System.currentTimeMillis());
+        video.setUploadtime(nowtime);
+        videoMapper.insVideo(video);
         return "{\"code\": 0,\"msg\": \"上传成功!\"}";
     }
 
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public class ResourceNotFoundException extends RuntimeException {
+    }
+
     @RequestMapping(value = "/download", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> Download(@RequestParam("filename") String filename) throws IOException {
-//        String dfileName = new String(fileName.getBytes("gb2312"), "iso8859-1");
-        File file = new File("F:/WebFile/file/Upload/Video/admin_127.0.0.1_1639423102142_share_52a7d6cd042b663861ace4abc9378ab3.mp4");
+    public ResponseEntity<byte[]> Download(@RequestParam("name") String name,HttpServletResponse response) throws IOException {
+        Video video = videoMapper.selectFileByname(name);
+        if (video == null){
+            throw new ResourceNotFoundException();
+        }
+        File file = new File(video.getPath()+video.getFilename());
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        headers.setContentDispositionFormData("attachment", "1.mp4");
+        headers.setContentDispositionFormData("attachment", name);
         return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
     }
 

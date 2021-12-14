@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjw.Mapper.VideoMapper">
+    <insert id="insVideo">
+        insert into video(name,filename,time,path,username,uploadtime) values (#{name},#{filename},#{time},#{path},#{username},#{uploadtime})
+    </insert>
+
+    <select id="selectFileByname" resultType="com.zjw.Domain.Video">
+        select * from video where name = #{name}
+    </select>
+</mapper>

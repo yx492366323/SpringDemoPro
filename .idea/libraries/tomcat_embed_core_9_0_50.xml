@@ -2,6 +2,7 @@
   <library name="tomcat-embed-core-9.0.50">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/tomcat-embed-core-9.0.50.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jave-1.0.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

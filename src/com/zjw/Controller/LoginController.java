@@ -36,7 +36,6 @@ public class LoginController {
     public ModelAndView Login() throws Exception {
         System.out.println("Request: GET:/Login/login");
         ModelAndView mav = new ModelAndView("login.jsp");
-//        userService.changePassword("2019015227","admin","Zhangjiawei");
         return mav;
     }
     @RequestMapping(value = "/loginerror",method = RequestMethod.GET)

@@ -9,7 +9,6 @@ public class Video {
     private String filename;
     private Time time;
     private String path;
-    private String webpath;
     private String username;
     private Timestamp uploadtime;
 
@@ -53,14 +52,6 @@ public class Video {
         this.path = path;
     }
 
-    public String getWebpath() {
-        return webpath;
-    }
-
-    public void setWebpath(String webpath) {
-        this.webpath = webpath;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -85,7 +76,6 @@ public class Video {
                 ", filename='" + filename + '\'' +
                 ", time=" + time +
                 ", path='" + path + '\'' +
-                ", webpath='" + webpath + '\'' +
                 ", username='" + username + '\'' +
                 ", uploadtime=" + uploadtime +
                 '}';
