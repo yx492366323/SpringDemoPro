@@ -1,7 +1,7 @@
 package com.zjw.Controller;
 
 import com.zjw.Domain.Video;
-import com.zjw.Mapper.VideoMapper;
+import com.zjw.Service.VideoService;
 import it.sauronsoftware.jave.EncoderException;
 import org.apache.commons.io.FileUtils;
 import org.apache.velocity.exception.ResourceNotFoundException;
@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 public class PublicController {
 
     @Autowired
-    private VideoMapper videoMapper;
+    private VideoService videoService;
 
     @ResponseBody
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
@@ -69,8 +69,10 @@ public class PublicController {
         video.setUsername(UserName);
         Timestamp nowtime = new Timestamp(System.currentTimeMillis());
         video.setUploadtime(nowtime);
-        videoMapper.insVideo(video);
-        return "{\"code\": 0,\"msg\": \"上传成功!\"}";
+        String tmp = "{\"code\": -1,\"msg\": \"上传失败，请检查名称是否与已存在名称重复!\"}";
+        if(videoService.insVideo(video))
+            tmp = "{\"code\": 0,\"msg\": \"上传成功!\"}";;
+        return tmp;
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
@@ -79,7 +81,7 @@ public class PublicController {
 
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     public ResponseEntity<byte[]> Download(@RequestParam("name") String name,HttpServletResponse response) throws IOException {
-        Video video = videoMapper.selectFileByname(name);
+        Video video = videoService.selectFileByname(name);
         if (video == null){
             throw new ResourceNotFoundException();
         }

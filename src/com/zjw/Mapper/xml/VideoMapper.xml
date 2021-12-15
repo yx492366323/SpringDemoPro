@@ -10,4 +10,20 @@
     <select id="selectFileByname" resultType="com.zjw.Domain.Video">
         select * from video where name = #{name}
     </select>
+
+    <select id="fineVideosByField" statementType="PREPARED" resultType="com.zjw.Domain.Video">
+        select * from video
+        <if test="Value!=null">
+            where ${Field} like '%${Value}%'
+        </if>
+    </select>
+
+    <delete id="delVideoById" parameterType="integer">
+        delete from video where id = #{id}
+    </delete>
+
+    <update id="modVideo" statementType="PREPARED">
+        update video set ${Field} = #{Value} where ID = #{Id}
+    </update>
+
 </mapper>

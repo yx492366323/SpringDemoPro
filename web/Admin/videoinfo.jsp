@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/layui.css">
-    <title>用户管理系统</title>
+    <title>视频管理系统</title>
 </head>
 <body>
 <input id="csrf" type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -31,7 +31,7 @@
 </body>
 <script src="js/layui.js"></script>
 <script src="js/jquery.js"></script>
-<script src="js/userinfo.js"></script>
+<script src="js/videoinfo.js"></script>
 <script type="text/html" id="btn">
     <button onclick="btnAct('del',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
 </script>

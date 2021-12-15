@@ -4,7 +4,9 @@ import com.zjw.Mapper.UserMapper;
 import com.zjw.Mapper.VideoMapper;
 import com.zjw.Service.Impl.MyUserDetailsServiceImpl;
 import com.zjw.Service.Impl.UserServiceImpl;
+import com.zjw.Service.Impl.VideoServiceImpl;
 import com.zjw.Service.UserService;
+import com.zjw.Service.VideoService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -73,6 +75,7 @@ public class Sql {
         video.setUploadtime(nowtime);
         videoMapper.insVideo(video);
     }
+
 
     @Test
     public void Passwd(){

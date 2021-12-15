@@ -22,6 +22,7 @@ function Change_iframe(num){
         ifream_all[i].style.display="none";
     }
     document.getElementById("iframe_"+num).style.display="";
+    Reload_iframe();
 }
 Change_iframe(1)
 
