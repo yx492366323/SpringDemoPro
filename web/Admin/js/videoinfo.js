@@ -17,7 +17,7 @@ layui.use(['table', 'layer', 'util'], function () {
             {
                 field: "",
                 title: "操作",
-                width: 65,
+                width: 120,
                 templet: '#btn'
             }
         ]]
@@ -82,7 +82,8 @@ layui.use(['table', 'layer', 'util'], function () {
         });
     }
     btnAct = function (type, obj) {
-        var id = obj.parentNode.parentNode.parentNode.getElementsByClassName("laytable-cell-1-0-0")[0].innerHTML
+        var id = obj.parentNode.parentNode.parentNode.getElementsByClassName("laytable-cell-1-0-0")[0].innerHTML;
+        var name = obj.parentNode.parentNode.parentNode.getElementsByClassName("laytable-cell-1-0-1")[0].innerHTML;
         if (type == 'del') {
             layer.confirm('确认删除该用户', function (index) {
                 $.ajax({
@@ -99,6 +100,9 @@ layui.use(['table', 'layer', 'util'], function () {
                     }
                 });
             });
+        }
+        else if(type == 'download'){
+            window.open("../Public/download?name="+name);
         }
     }
 });

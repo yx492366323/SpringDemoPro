@@ -33,6 +33,7 @@
 <script src="js/jquery.js"></script>
 <script src="js/videoinfo.js"></script>
 <script type="text/html" id="btn">
+    <button onclick="btnAct('download',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">下载</button>
     <button onclick="btnAct('del',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
 </script>
 </html>

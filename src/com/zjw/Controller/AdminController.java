@@ -90,7 +90,7 @@ public class AdminController {
     public String Modvideo(@RequestParam(value = "Field") String Field, @RequestParam(value = "Value") String Value, @RequestParam(value = "Id") Integer Id) throws Exception {
         System.out.println("Request: GET:/Admin/modvideo");
         String tmp = "ÐÞ¸ÄÊ§°Ü";
-        if(userService.modUser(Field, Value, Id))
+        if(videoService.modVideo(Field, Value, Id))
             tmp = "ÐÞ¸Ä³É¹¦";
         return tmp;
     }
@@ -99,7 +99,7 @@ public class AdminController {
     public String Delvideo(@RequestParam(value = "Id") Integer Id) throws Exception {
         System.out.println("Request: GET:/Admin/delvideo");
         String tmp = "É¾³ýÊ§°Ü";
-        if(userService.delUserById(Id))
+        if(videoService.delVideoById(Id))
             tmp = "É¾³ý³É¹¦";
         return tmp;
     }
