@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Online Pring System</title>
+    <title>后台管理系统</title>
     <link rel="stylesheet" href="css/layui.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header" style="background-color: #4D5260;">
-        <div class="layui-logo layui-hide-xs layui-bg-black">Online Print System</div>
+        <div class="layui-logo layui-hide-xs layui-bg-black">后台管理系统</div>
         <!-- 头部区域（可配合layui 已有的水平导航） -->
         <div id="Refresh" onclick="Reload_iframe()">
             <i class="layui-icon layui-icon-refresh" style="font-size: 30px;"></i>
