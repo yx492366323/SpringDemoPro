@@ -48,7 +48,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/index.jsp","/Login/**").permitAll()
                 .antMatchers("/User/**","/Public/**").hasAuthority("USER")
                 .antMatchers("/Admin/**","/Public/**").hasAuthority("ADMIN")
-                .antMatchers("/swagger-ui.html","/Hello/**").hasAuthority("DEV")
+                .antMatchers("/Hello/**").hasAuthority("DEV")
                 .anyRequest().hasAuthority("DEV");
         //配置好跨域相关内容前关闭一下跨域防护。
 //        http.csrf().disable();

@@ -17,7 +17,7 @@ layui.use(['table', 'layer', 'util'], function () {
             {
                 field: "",
                 title: "操作",
-                width: 120,
+                width: 180,
                 templet: '#btn'
             }
         ]]
@@ -32,7 +32,6 @@ layui.use(['table', 'layer', 'util'], function () {
             url: "findvideo",
             success: function (res) {
                 var data = res;
-                console.log(data.data);
                 // 获取到 data
                 table.reload('test', {
                     data: data
@@ -103,6 +102,11 @@ layui.use(['table', 'layer', 'util'], function () {
         }
         else if(type == 'download'){
             window.open("../Public/download?name="+name);
+        }
+        else if(type == 'play'){
+            var path = "../Public/download?name="+name;
+            var video = '<div id="video" style="display: block;"><!--视频模块--><video class="video_window" src='+path+' autoplay="" controls="" height="1280px" width="720px"></video><!--视频关闭按钮--><img src="Image/video_off.png" id="video_off" alt="video_off" width="60px"></div>';
+            document.getElementById("video").outerHTML = video;
         }
     }
 });

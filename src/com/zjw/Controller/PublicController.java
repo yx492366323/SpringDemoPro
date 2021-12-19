@@ -81,6 +81,7 @@ public class PublicController {
 
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     public ResponseEntity<byte[]> Download(@RequestParam("name") String name,HttpServletResponse response) throws IOException {
+        System.out.println("Request: POST:/Public/download");
         Video video = videoService.selectFileByname(name);
         if (video == null){
             throw new ResourceNotFoundException();
