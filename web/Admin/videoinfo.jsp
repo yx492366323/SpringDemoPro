@@ -29,7 +29,7 @@
     <button onclick="search()" type="button" class="layui-btn" style="width: 225px; margin-left: 20px;">搜索</button>
 </div>
 <table class="layui-hide" id="test" lay-filter="test" style="position: relative; top: 200px; "></table>
-<div id ="video"></div>
+<div id ="no_video"></div>
 </body>
 <script src="js/layui.js"></script>
 <script src="js/jquery.js"></script>

@@ -105,8 +105,12 @@ layui.use(['table', 'layer', 'util'], function () {
         }
         else if(type == 'play'){
             var path = "../Public/download?name="+name;
-            var video = '<div id="video" style="display: block;"><!--视频模块--><video class="video_window" src='+path+' autoplay="" controls="" height="1280px" width="720px"></video><!--视频关闭按钮--><img src="Image/video_off.png" id="video_off" alt="video_off" width="60px"></div>';
-            document.getElementById("video").outerHTML = video;
+            var video = '<div id="video" style="display: block;"><!--视频模块--><video class="video_window" src='+path+' autoplay="" controls="" height="720px" width="1280px"></video><!--视频关闭按钮--><img src="../Public/Img/video_off.png" id="video_off" alt="video_off" width="60px"></div>';
+            document.getElementById("no_video").outerHTML = video;
+            var video_off_button = document.getElementById("video_off");
+            video_off_button.onclick = function(){
+                document.getElementById("video").outerHTML = '<div id ="no_video"></div>';
+            }
         }
     }
 });
