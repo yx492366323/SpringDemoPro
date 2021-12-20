@@ -9,18 +9,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/layui.css">
-    <title>视频管理系统</title>
-    <link rel="stylesheet" href="css/videoinfo.css">
+    <link rel="stylesheet" href="/css/layui.css">
+    <title>视频管理</title>
 </head>
 <body>
-<input id="csrf" type="hidden" name="_csrf" value="${_csrf.token}"/>
+<input id="csrf" type="hidden" name="_csrf" th:value="${_csrf.token}" th:if="${_csrf}"/>
 <div class="layui-form" style="margin-top:20px;">
     <div style="width: 225px; float: left;margin-left:20px;">
         <select name="city" lay-verify="test" id="searchType" lay-search>
             <option value="UserName">UserName</option>
-            <option value="IDCard">IDCardNumber</option>
-            <option value="Phone">PhoneNumber</option>
+            <option value="TrueName">TrueName</option>
+            <option value="IDCardNumber">IDCardNumber</option>
+            <option value="Sex">IsMale</option>
+            <option value="BirthDay">BirthDay</option>
+            <option value="Email">Email</option>
+            <option value="PhoneNumber">PhoneNumber</option>
+            <option value="BuildingNumber">BuildingNumber</option>
+            <option value="SecurityQuestion">SecurityQuestion</option>
+            <option value="SecurityAnswer">SecurityAnswer</option>
             <option value="UserRoles">UserRoles</option>
         </select>
     </div>
@@ -29,14 +35,12 @@
     <button onclick="search()" type="button" class="layui-btn" style="width: 225px; margin-left: 20px;">搜索</button>
 </div>
 <table class="layui-hide" id="test" lay-filter="test" style="position: relative; top: 200px; "></table>
-<div id ="video"></div>
 </body>
-<script src="js/layui.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/videoinfo.js"></script>
+<script src="/js/layui.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/user_information.js"></script>
 <script type="text/html" id="btn">
-    <button onclick="btnAct('play',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">播放</button>
-    <button onclick="btnAct('download',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">下载</button>
     <button onclick="btnAct('del',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
 </script>
 </html>
+

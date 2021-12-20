@@ -24,7 +24,7 @@ function Change_iframe(num){
     document.getElementById("iframe_"+num).style.display="";
     Reload_iframe();
 }
-Change_iframe(1)
+Change_iframe(3)
 
 function Reload_iframe(){
     var ifream_all = document.getElementsByClassName("iframe_div_all");
