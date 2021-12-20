@@ -38,7 +38,7 @@ public class PublicController {
     public String Upload(@RequestParam("file") MultipartFile file,@RequestParam(name="type",required = false) String type) throws EncoderException {
         String UserName = SecurityContextHolder.getContext().getAuthentication().getName();
         String Roles = String.valueOf(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
-        String recFilePath="F:/WebFile/file/Upload/";
+        String recFilePath="F:/WebFile/file/Upload/User/";
         if(Roles.indexOf("ADMIN")!=-1){
             recFilePath="F:/WebFile/file/Upload/"+type+"/";
         }

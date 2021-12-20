@@ -51,7 +51,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/Hello/**").hasAuthority("DEV")
                 .anyRequest().hasAuthority("DEV");
         //配置好跨域相关内容前关闭一下跨域防护。
-//        http.csrf().disable();
+        http.csrf().disable();
         //X-Frame-Options
         http.headers().frameOptions().sameOrigin();
     }
