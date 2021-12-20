@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>后台管理系统</title>
+    <title>青年大学习后台管理系统</title>
     <link rel="stylesheet" href="css/layui.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header" style="background-color: #4D5260;">
-        <div class="layui-logo layui-hide-xs layui-bg-black">后台管理系统</div>
+        <div class="layui-logo layui-hide-xs layui-bg-black">青年大学习后台管理系统</div>
         <!-- 头部区域（可配合layui 已有的水平导航） -->
         <div id="Refresh" onclick="Reload_iframe()">
             <i class="layui-icon layui-icon-refresh" style="font-size: 30px;"></i>
@@ -76,13 +76,13 @@
                 <iframe class="iframe_one" src="/ManageUser/server.html" frameborder="0"></iframe>
             </div>
             <div class="iframe_div_all" id="iframe_3">
-                <iframe class="iframe_one" src="/ManageUser/user_information.html" frameborder="0"></iframe>
+                <iframe class="iframe_one" src="userinfo" frameborder="0"></iframe>
             </div>
             <div class="iframe_div_all" id="iframe_4">
                 <iframe class="iframe_one" src="/ManageUser/user_password.html" frameborder="0"></iframe>
             </div>
             <div class="iframe_div_all" id="iframe_5">
-                <iframe class="iframe_one" src="/AdminPrint/orderManager.html" frameborder="0"></iframe>
+                <iframe class="iframe_one" src="videoinfo" frameborder="0"></iframe>
             </div>
             <div class="iframe_div_all" id="iframe_6">
                 <iframe class="iframe_one" src="upload" frameborder="0"></iframe>

@@ -3,6 +3,7 @@ package com.zjw.Service.Impl;
 import com.zjw.Domain.User;
 import com.zjw.Mapper.UserMapper;
 import com.zjw.Service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -25,6 +27,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectUserByInfo(username);
     }
 
+    public List<User> fineUsersByField(String Field, String Value) {
+        return userMapper.fineUsersByField(Field, Value);
+    }
+
     public boolean isUserExist(String UserName) {
         return userMapper.isUserExist(UserName);
     }
@@ -37,6 +43,7 @@ public class UserServiceImpl implements UserService {
         return 1==userMapper.modUser(Field, Value, Id);
     }
 
+    public boolean delUserById(Integer Id){return 1==userMapper.delUserById(Id);};
 
     public String getQuestion(String UserName){
         return selectUserByInfo(UserName).getSecurityquestion();

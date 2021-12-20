@@ -10,7 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/layui.css">
-    <title>用户管理系统</title>
+    <title>视频管理系统</title>
+    <link rel="stylesheet" href="css/videoinfo.css">
 </head>
 <body>
 <input id="csrf" type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -28,11 +29,14 @@
     <button onclick="search()" type="button" class="layui-btn" style="width: 225px; margin-left: 20px;">搜索</button>
 </div>
 <table class="layui-hide" id="test" lay-filter="test" style="position: relative; top: 200px; "></table>
+<div id ="video"></div>
 </body>
 <script src="js/layui.js"></script>
 <script src="js/jquery.js"></script>
-<script src="js/userinfo.js"></script>
+<script src="js/videoinfo.js"></script>
 <script type="text/html" id="btn">
+    <button onclick="btnAct('play',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">播放</button>
+    <button onclick="btnAct('download',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">下载</button>
     <button onclick="btnAct('del',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
 </script>
 </html>
