@@ -25,7 +25,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
                 httpServletResponse.sendRedirect("../Admin/");
             }
             else{
-                    httpServletResponse.sendRedirect("../Hello/Hello");
+                    httpServletResponse.sendRedirect("../User/");
             }
         }
     }

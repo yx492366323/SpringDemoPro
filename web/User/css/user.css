@@ -15,3 +15,14 @@
 #user-menu-button{
     background-color: #393d49;
 }
+#Refresh{
+    position: absolute;
+    left: 220px;
+    top: 4px;
+    color: #1E9FFF;
+    padding-left: 5px;
+    width: 40px;
+}
+#Refresh:hover{
+    color: #ff9e1e;
+}

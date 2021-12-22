@@ -27,7 +27,7 @@ public class AdminController {
 
     //йсм╪
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public ModelAndView Login(Authentication authentication) throws Exception {
+    public ModelAndView Index(Authentication authentication) throws Exception {
         System.out.println("Request: GET:/Admin/");
         ModelAndView mav = new ModelAndView("admin.jsp");
         mav.addObject("username", authentication.getName());
