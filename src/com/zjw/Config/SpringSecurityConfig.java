@@ -46,8 +46,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 //放行页面
                 .antMatchers("/index.jsp","/Login/**").permitAll()
-                .antMatchers("/User/**","/Public/**").hasAuthority("USER")
-                .antMatchers("/Admin/**","/Public/**").hasAuthority("ADMIN")
+                .antMatchers("/User/**","/Public/**").hasAnyAuthority("USER","ADMIN")
+                .antMatchers("/Admin/**").hasAuthority("ADMIN")
                 .antMatchers("/Hello/**").hasAuthority("DEV")
                 .anyRequest().hasAuthority("DEV");
         //配置好跨域相关内容前关闭一下跨域防护。
