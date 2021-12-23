@@ -13,7 +13,21 @@
     padding-right: 0px;
 }
 #user-menu-button{
-    background-color: #393d49;
+    background-color: #e84619;
+}
+#Title{
+    background-color: #e84619;
+    color: #00ff8c;
+    font-size: 35px;
+    position: relative;
+    float: left;
+}
+#Nav{
+    float: left;
+    left: 50px;
+}
+.Nav-all{
+    font-size: 16px;
 }
 #Refresh{
     position: absolute;
@@ -26,3 +40,4 @@
 #Refresh:hover{
     color: #ff9e1e;
 }
+
