@@ -18,4 +18,6 @@ public interface VideoService {
     Boolean delVideoById(Integer Id);
 
     Boolean modVideo(String Field, String Value, Integer Id);
+
+    List<Video> findByUsername(String username, Boolean state);
 }

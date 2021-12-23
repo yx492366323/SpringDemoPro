@@ -18,10 +18,12 @@
 <div class="layui-form" style="margin-top:20px;">
     <div style="width: 225px; float: left;margin-left:20px;">
         <select name="city" lay-verify="test" id="searchType" lay-search>
-            <option value="UserName">UserName</option>
-            <option value="IDCard">IDCardNumber</option>
-            <option value="Phone">PhoneNumber</option>
-            <option value="UserRoles">UserRoles</option>
+            <option value="name">名称</option>
+            <option value="filename">文件名</option>
+            <option value="time">视频时长</option>
+            <option value="path">路径</option>
+            <option value="username">用户名</option>
+            <option value="uploadtime">上传时间</option>
         </select>
     </div>
     <input class="layui-input" name="condition" id="searchCondition" autocomplete="off"

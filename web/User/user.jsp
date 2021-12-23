@@ -15,7 +15,10 @@
         <div class="layui-logo layui-hide-xs" id="Title">青年大学习</div>
         <ul class="layui-nav" id="Nav">
             <li class="layui-nav-item">
-                <a class="Nav-all" href="javascript:Change_iframe(1);">学习内容<span class="layui-badge Nav-all">9</span></a>
+                <a class="Nav-all" href="javascript:Change_iframe(1);">
+                    <span style="width: 90px;display: block;">学习内容</span>
+                    <span class="layui-badge Nav-all" style="left: 80px;">${count1}</span>
+                </a>
             </li>
             <li class="layui-nav-item Nav-all">
                 <a class="Nav-all" href="javascript:Change_iframe(2);">账号信息</a>
@@ -44,7 +47,7 @@
 <div style="padding: 15px; top:40px; position:fixed; width: 100%;height: 95%;">
     <div class="iframe_div_all" id="iframe_1">
         <iframe class="iframe_one" src="study.jsp" frameborder="0"></iframe>
-    </div>video
+    </div>
     <div class="iframe_div_all" id="iframe_2" style="display:none">
         <iframe class="iframe_one" src="userinfo.jsp" frameborder="0"></iframe>
     </div>

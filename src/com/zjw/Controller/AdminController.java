@@ -83,6 +83,7 @@ public class AdminController {
     @RequestMapping(value = "/findvideo",method = RequestMethod.GET)
     public List<Video> Findvideo(@RequestParam(value = "Field", required = false) String Field, @RequestParam(value = "Value", required = false) String Value) throws Exception {
         System.out.println("Request: GET:/Admin/findvideo");
+        List<Video> videos = videoService.fineVideosByField(Field,Value);
         return videoService.fineVideosByField(Field,Value);
     }
     @ResponseBody

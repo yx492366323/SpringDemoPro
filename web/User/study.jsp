@@ -10,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/study.css">
     <title>学习内容</title>
 </head>
 <body>

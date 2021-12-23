@@ -30,9 +30,14 @@ public class VideoServiceImpl implements VideoService {
     public Boolean delVideoById(Integer Id) {
         return 1==videoMapper.delVideoById(Id);
     }
-
     public Boolean modVideo(String Field, String Value, Integer Id) {
         return 1==videoMapper.modVideo(Field,Value,Id);
     }
 
+    public List<Video> findByUsername(String username, Boolean state){
+        if(state)
+            return videoMapper.findByUsername1(username);
+        else
+            return videoMapper.findByUsername0(username);
+    }
 }
