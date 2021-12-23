@@ -81,10 +81,10 @@
 <%--            <div class="iframe_div_all" id="iframe_4">--%>
 <%--                <iframe class="iframe_one" src="/ManageUser/user_password.html" frameborder="0"></iframe>--%>
 <%--            </div>--%>
-            <div class="iframe_div_all" id="iframe_5">
+            <div class="iframe_div_all" id="iframe_5" style="display:none">
                 <iframe class="iframe_one" src="videoinfo" frameborder="0"></iframe>
             </div>
-            <div class="iframe_div_all" id="iframe_6">
+            <div class="iframe_div_all" id="iframe_6" style="display:none">
                 <iframe class="iframe_one" src="upload" frameborder="0"></iframe>
             </div>
 <%--            <div class="iframe_div_all" id="iframe_7">--%>
