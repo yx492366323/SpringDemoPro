@@ -12,4 +12,7 @@
     <select id="countByVideoname" parameterType="string" resultType="integer">
         select count(*) from user_video where videoname = #{videoname}
     </select>
+    <insert id="insUserVideo">
+        insert into user_video(username,videoname,time) values (#{username},#{videoname},#{time})
+    </insert>
 </mapper>

@@ -7,17 +7,14 @@ layui.use(['table', 'layer', 'util'], function () {
         elem: '#test'
         , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
         , cols: [[
-            { field: 'id', title: 'ID', sort: true},
-            { field: 'username', title: 'UserName', sort: true, edit: 'text' },
-            { field: 'idcard', title: 'IDCard', sort: true, edit: 'text' },
-            { field: 'phone', title: 'PhoneNumber', sort: true, edit: 'text' },
-            { field: 'securityquestion', title: 'SecurityQuestion', sort: true, edit: 'text' },
-            { field: 'securityanswer', title: 'SecurityAnswer', sort: true, edit: 'text' },
-            { field: 'roles', title: 'UserRoles', sort: true, edit: 'text' },
+            { field: 'name', title: '名称', sort: true},
+            { field: 'time', title: '视频时长', sort: true},
+            { field: 'username', title: '上传者用户名', sort: true},
+            { field: 'uploadtime', title: '上传时间', sort: true},
             {
                 field: "",
                 title: "操作",
-                width: 65,
+                width: 180,
                 templet: '#btn'
             }
         ]]
@@ -29,10 +26,12 @@ layui.use(['table', 'layer', 'util'], function () {
         // 此处调用查询接口
         $.ajax({
             type: "GET",
-            url: "finduser",
+            url: "findvideo",
+            data: {
+                State: false
+            },
             success: function (res) {
                 var data = res;
-                console.log(data.data);
                 // 获取到 data
                 table.reload('test', {
                     data: data
@@ -41,36 +40,13 @@ layui.use(['table', 'layer', 'util'], function () {
         });
     }
     reload();
-    //监听单元格编辑
-    table.on('edit(test)', function (obj) {
-        var value = obj.value //得到修改后的值
-            , data = obj.data //得到所在行所有键值
-            , field = obj.field; //得到字段
-        layer.msg('[用户名: ' + data.userName + '] ' + field + ' 字段更改值为：' + util.escape(value));
-        console.log(obj);
-        $.ajax({
-            type: "POST",
-            url: "moduser",
-            data: {
-                _csrf: $('#csrf').val(),
-                Field: field,
-                Value: value,
-                Id: data.id,
-            },
-            success: function (res) {
-                reload();
-                console.log(res);
-            }
-        });
-    });
     search = function () {
-        var searchCondition = $('#searchCondition').val();
         var searchType = $("#searchType option:selected").val();
+        var state = searchType=="true"?true:false;
         $.ajax({
-            url: "finduser",
+            url: "findvideo",
             data: {
-                Value: searchCondition,
-                Field: searchType
+                State: state
             },
             success: function (res) {
                 var data = res;
@@ -82,23 +58,39 @@ layui.use(['table', 'layer', 'util'], function () {
         });
     }
     btnAct = function (type, obj) {
-        var id = obj.parentNode.parentNode.parentNode.getElementsByClassName("laytable-cell-1-0-0")[0].innerHTML
-        if (type == 'del') {
-            layer.confirm('确认删除该用户', function (index) {
-                $.ajax({
-                    type: "POST",
-                    url: "deluser",
-                    data: {
-                        _csrf: $('#csrf').val(),
-                        Id: id
-                    },
-                    success: function (res) {
-                        // 调用删除接口
-                        reload();
-                        layer.close(index);
-                    }
-                });
-            });
+        name = obj.parentNode.parentNode.parentNode.getElementsByClassName("laytable-cell-1-0-0")[0].innerHTML;
+        if(type == 'download'){
+            window.open("../Public/download?name="+name);
         }
+        else if(type == 'play'){
+            var path = "../Public/download?name="+name;
+            var video = '<div id="video" style="display: block;"><!--视频模块--><video id="thevideo" class="video_window" src='+path+' autoplay="" controls="" height="720px" width="1280px"></video><!--视频关闭按钮--><img src="../Public/Img/video_off.png" id="video_off" alt="video_off" width="60px"></div>';
+            document.getElementById("no_video").outerHTML = video;
+            var video_off_button = document.getElementById("video_off");
+            video_off_button.onclick = function(){
+                document.getElementById("video").outerHTML = '<div id ="no_video"></div>';
+            }
+            thevideo.addEventListener("ended",function(){
+                OK();
+            })
+        }
+    }
+    var OK = function () {
+        $.ajax({
+            type: "POST",
+            url: "okvideo",
+            data: {
+                _csrf: $('#csrf').val(),
+                Name: name
+            },
+            success: function (res) {
+                var data = res;
+                // 获取到 data
+                table.reload('test', {
+                    data: data
+                }, true)
+                window.top.location.reload();
+            }
+        });
     }
 });

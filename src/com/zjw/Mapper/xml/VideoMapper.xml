@@ -31,9 +31,9 @@
     </update>
 
     <select id="findByUsername1" parameterType="string" resultType="com.zjw.Domain.Video">
-        select * from video where name = (select videoname from user_video where username = #{username});
+        select * from video where name in (select videoname from user_video where username = #{username});
     </select>
     <select id="findByUsername0" parameterType="string" resultType="com.zjw.Domain.Video">
-        select * from video where name != (select videoname from user_video where username = #{username});
+        select * from video where name not in (select videoname from user_video where username = #{username});
     </select>
 </mapper>

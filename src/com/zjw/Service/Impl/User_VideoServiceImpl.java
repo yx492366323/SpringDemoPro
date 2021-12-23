@@ -28,4 +28,7 @@ public class User_VideoServiceImpl implements User_VideoService {
     public List<User_Video> findByUsername(String username){
         return userVideoMapper.findByUsername(username);
     }
+    public Boolean insUserVideo(User_Video userVideo) {
+        return 1==userVideoMapper.insUserVideo(userVideo);
+    }
 }

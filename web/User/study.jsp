@@ -18,22 +18,20 @@
 <div class="layui-form" style="margin-top:20px;">
     <div style="width: 225px; float: left;margin-left:20px;">
         <select name="city" lay-verify="test" id="searchType" lay-search>
-            <option value="UserName">UserName</option>
-            <option value="IDCard">IDCardNumber</option>
-            <option value="Phone">PhoneNumber</option>
-            <option value="UserRoles">UserRoles</option>
+            <option value="false">未学习</option>
+            <option value="true">已学习</option>
         </select>
     </div>
-    <input class="layui-input" name="condition" id="searchCondition" autocomplete="off"
-           style="width: 225px; float: left; margin-left: 20px;">
     <button onclick="search()" type="button" class="layui-btn" style="width: 225px; margin-left: 20px;">搜索</button>
 </div>
 <table class="layui-hide" id="test" lay-filter="test" style="position: relative; top: 200px; "></table>
+<div id ="no_video"></div>
 </body>
 <script src="js/layui.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/study.js"></script>
 <script type="text/html" id="btn">
-    <button onclick="btnAct('del',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+    <button onclick="btnAct('play',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">播放</button>
+    <button onclick="btnAct('download',this)" type="button" class="layui-btn layui-btn-danger layui-btn-xs">下载</button>
 </script>
 </html>

@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="layui-nav-item Nav-all">
-                <a class="Nav-all" href="javascript:Change_iframe(2);">账号信息</a>
+                <a class="Nav-all" href="javascript:Change_iframe(2);">修改密码</a>
             </li>
         </ul>
         <div id="Refresh" onclick="Reload_iframe()">
@@ -44,12 +44,12 @@
 </div>
 
 <!-- 内容主体区域 -->
-<div style="padding: 15px; top:40px; position:fixed; width: 100%;height: 95%;">
+<div style="padding: 15px; top:50px; position:fixed; width: 99%;height: 95%;">
     <div class="iframe_div_all" id="iframe_1">
-        <iframe class="iframe_one" src="study.jsp" frameborder="0"></iframe>
+        <iframe class="iframe_one" src="study" frameborder="0"></iframe>
     </div>
     <div class="iframe_div_all" id="iframe_2" style="display:none">
-        <iframe class="iframe_one" src="userinfo.jsp" frameborder="0"></iframe>
+        <iframe class="iframe_one" src="changePassword" frameborder="0"></iframe>
     </div>
 </div>
 

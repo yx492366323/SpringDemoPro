@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class User_Video {
 
     private String username;
-    private String filename;
+    private String videoname;
     private Timestamp time;
 
     public String getUsername() {
@@ -17,12 +17,12 @@ public class User_Video {
         this.username = username;
     }
 
-    public String getFilename() {
-        return filename;
+    public String getVideoname() {
+        return videoname;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setVideoname(String videoname) {
+        this.videoname = videoname;
     }
 
     public Timestamp getTime() {
@@ -37,7 +37,7 @@ public class User_Video {
     public String toString() {
         return "User_Video{" +
                 "username='" + username + '\'' +
-                ", filename='" + filename + '\'' +
+                ", videoname='" + videoname + '\'' +
                 ", time=" + time +
                 '}';
     }

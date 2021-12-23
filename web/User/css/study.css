@@ -4,3 +4,27 @@ body{
     background-size:100% 100%;
     background-attachment: fixed;
 }
+#video{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.70);
+}
+.video_window{
+    margin: 100px auto;
+    display: block;
+}
+#video_off{
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+.layui-table-view{
+    background-color: #ffffff;
+}

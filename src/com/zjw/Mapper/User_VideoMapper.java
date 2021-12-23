@@ -8,6 +8,7 @@ import java.util.List;
 @Mapper
 public interface User_VideoMapper {
     List<User_Video> findByUsername(String username);
-    Integer countByUsername(String username);
-    Integer countByVideoname(String videoname);
+    int countByUsername(String username);
+    int countByVideoname(String videoname);
+    int insUserVideo (User_Video userVideo);
 }

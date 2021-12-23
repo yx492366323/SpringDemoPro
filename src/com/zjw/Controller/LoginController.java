@@ -98,7 +98,7 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(path = "/isUserExist", method = RequestMethod.GET)
     public String isuserexist(String UserName) {
-        System.out.println("Request: /User/isUserExist");
+        System.out.println("Request: /Login/isUserExist");
         System.out.println(UserName);
         return userService.isUserExist(UserName)?"true":"";
     }
@@ -106,7 +106,7 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(path = "/getQuestion", method = RequestMethod.GET)
     public String getquestion(String UserName) {
-        System.out.println("Request: GET:/User/getQuestion");
+        System.out.println("Request: GET:/Login/getQuestion");
         System.out.println(UserName);
         return userService.getQuestion(UserName);
     }
@@ -114,7 +114,7 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(path = "/verifyAnswer", method = RequestMethod.GET)
     public String verifyanswer(String UserName, String SecurityAnswer) {
-        System.out.println("Request: GET:/User/verifyAnswer");
+        System.out.println("Request: GET:/Login/verifyAnswer");
         System.out.println(UserName);
         System.out.println(SecurityAnswer);
         return userService.verifyAnswer(UserName,SecurityAnswer)?"true":"";
@@ -123,7 +123,7 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(path = "/changePassword", method = RequestMethod.POST)
     public String changepassword(String UserName, String Password , String SecurityAnswer) {
-        System.out.println("Request: POST:/User/changePassword");
+        System.out.println("Request: POST:/Login/changePassword");
         System.out.println(UserName);
         System.out.println(Password);
         System.out.println(SecurityAnswer);
