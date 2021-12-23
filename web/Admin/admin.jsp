@@ -24,7 +24,7 @@
                     <span>${username}</span>
                 </a>
                 <dl class="layui-nav-child">
-<%--                    <dd><a href="/user.html">As User Login</a></dd>--%>
+                    <dd><a href="../User/">As User Login</a></dd>
                     <dd><a href="../Login/logout">Logout</a></dd>
                 </dl>
             </li>
