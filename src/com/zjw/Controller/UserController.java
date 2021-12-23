@@ -73,7 +73,7 @@ public class UserController {
         Boolean tmp = false;
         List<User_Video> videos = user_videoService.findByUsername(authentication.getName());
         for(User_Video video:videos)
-            if(video.getVideoname()==Name)
+            if(video.getVideoname().equals(Name))
                 return tmp;
         if(user_videoService.insUserVideo(userVideo))
             tmp = true;
